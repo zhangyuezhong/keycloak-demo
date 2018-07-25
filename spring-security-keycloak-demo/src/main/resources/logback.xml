@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<statusListener
+		class="ch.qos.logback.core.status.NopStatusListener" />
+	<appender name="consoleAppender"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<charset>UTF-8</charset>
+			<Pattern>%d{dd-MM-YYY HH:mm:ss.SSS} [%thread] %-5level %logger{0} - %msg%n%ex{full}
+			</Pattern>
+		</encoder>
+	</appender>
+	<logger name="org.springframework" level="DEBUG" additivity="false">
+		<appender-ref ref="consoleAppender" />
+	</logger>
+	<logger name="com.telstra" level="DEBUG" additivity="false">
+		<appender-ref ref="consoleAppender" />
+	</logger>
+	<logger name="org.keycloak" level="DEBUG" additivity="false">
+		<appender-ref ref="consoleAppender" />
+	</logger>
+	<root level="ERROR">
+		<appender-ref ref="consoleAppender" />
+	</root>
+</configuration>
